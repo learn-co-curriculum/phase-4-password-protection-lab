@@ -27,7 +27,7 @@ RSpec.describe "Users", type: :request do
 
         expect(response.body).to include_json({
           id: User.last.id,
-          name: User.last.name
+          username: User.last.username
         })
       end
 
@@ -37,7 +37,7 @@ RSpec.describe "Users", type: :request do
       let!(:user_params) { { name: 'Steven', password: 'un1verse', password_confirmation: 'wrong' } }
 
       it 'does not save the user' do
-        expect { post '/signup' }.not_to change(User.count)
+        expect { post '/signup' }.not_to change(User, :count)
       end
 
       it 'returns a 422 unprocessable entity response' do
@@ -69,6 +69,12 @@ RSpec.describe "Users", type: :request do
       expect(response.body).to include_json({ 
         id: user2.id, username: user2.username
       })
+    end
+
+    it 'returns a 401 unauthorized response when no user is logged in' do
+      get '/me'
+
+      expect(response).to have_http_status(:unauthorized)
     end
   end
   

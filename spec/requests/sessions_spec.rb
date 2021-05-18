@@ -52,7 +52,7 @@ RSpec.describe "Sessions", type: :request do
   
   describe "DELETE /logout" do
     before do
-      post "/login", params: { username: user.username }
+      post "/login", params: { username: user.username, password: user.password }
     end
 
     it 'returns no content' do
