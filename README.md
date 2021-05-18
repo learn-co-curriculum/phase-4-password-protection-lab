@@ -7,7 +7,8 @@
 
 ## Introduction
 
-We're going to make a Rails app that covers a simple authentication flow: users can create accounts, log in, and log out.
+We're going to make a Rails app that covers a simple authentication flow: users
+can create accounts, log in, and log out.
 
 There is some starter code in place for a Rails API backend and a React frontend.
 To get set up, run:
@@ -51,7 +52,8 @@ Users should not be able to log in if they enter an incorrect password.
 
 ## Instructions
 
-1. Create a `User` model and migrations. Make sure to use `password_digest`, not
+1. Create a `User` model, and migrations for `users` table with `username` and
+   `password_digest` columns. Make sure to use `password_digest`, not
    `password`, in your migration; and include the `has_secure_password` macro in
    your model.
 
