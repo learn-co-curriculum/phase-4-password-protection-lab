@@ -24,7 +24,7 @@ function App() {
         {user ? (
           <Switch>
             <Route path="/">
-              <Home />
+              <Home user={user}/>
             </Route>
           </Switch>
         ) : (
