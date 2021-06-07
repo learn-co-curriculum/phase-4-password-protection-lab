@@ -44,30 +44,32 @@ Our app has three pages:
    logged in.
 3. A user homepage, which says, "Welcome, ${username}!"
 
-We're not covering validations in this lab, so don't worry about those.
-(Password validations are hard to get right anyway; it's surprisingly easy to
-produce rules which decrease password security rather than enhance it.)
-
 Users should not be able to log in if they enter an incorrect password.
+
+Note: we're not covering password validations in this lab, so don't worry about
+those. Password validation is hard to get right anyway — it's surprisingly easy
+to produce rules that decrease password security rather than enhance it.
 
 ## Instructions
 
-1. Create a `User` model, and migrations for `users` table with `username` and
-   `password_digest` columns. Make sure to use `password_digest`, not
-   `password`, in your migration; and include the `has_secure_password` macro in
-   your model.
+To complete the lab and get the tests passing, you will need to:
 
-2. Create a `UsersController` with a `create` method that responds to a
-   `POST /signup` request. It should create a new user; save their hashed
-   password in the database; save the user's ID in the session hash; and return
-   the user object in the JSON response.
+- Create a User model, and migrations for a `users` table with `username` and
+  `password_digest` columns. Make sure to use `password_digest`, not
+  `password`, in your migration, and to include the has_secure_password macro
+  in your model.
 
-3. Add a `show` method to your `UsersController` that response to a `GET /me`
-   request. If the user is authenticated, return the user object in the JSON
-   response.
+- Create a `UsersController` with a `create` method that responds to a `POST
+  /signup` request. It should: create a new user; save their hashed password in
+  the database; save the user's ID in the session hash; and return the user
+  object in the JSON response.
 
-4. Create a Sessions controller with a `create` action for logging in, and a
-   `destroy` action for logging out.
+- Add a `show` method to your `UsersController` that responds to a `GET /me`
+  request. If the user is authenticated, return the user object in the JSON
+  response.
+
+- Create a Sessions controller with a `create` action for logging in that responds to a `POST /login` request, and a
+  `destroy` action for logging out that responds to a `DELETE /logout` request.
 
 Happy coding!
 
