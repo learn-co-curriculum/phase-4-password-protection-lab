@@ -13,23 +13,23 @@ can create accounts, log in, and log out.
 There is some starter code in place for a Rails API backend and a React frontend.
 To get set up, run:
 
-```sh
-bundle install
-npm install --prefix client
+```console
+$ bundle install
+$ npm install --prefix client
 ```
 
 You can work on this lab by running the tests with `learn test`. It will also be
 helpful to see what's happening during the request/response cycle by running the
 app in the browser. You can run the Rails server with:
 
-```sh
-rails s
+```console
+$ rails s
 ```
 
 And you can run React in another terminal with:
 
-```sh
-npm start --prefix client
+```console
+$ npm start --prefix client
 ```
 
 You don't have to make any changes to the React code to get this lab working.
@@ -59,8 +59,7 @@ To complete the lab and get the tests passing, you will need to:
   `password`, in your migration, and to include the has_secure_password macro
   in your model.
 
-- Create a `UsersController` with a `create` method that responds to a `POST
-  /signup` request. It should: create a new user; save their hashed password in
+- Create a `UsersController` with a `create` method that responds to a `POST /signup` request. It should: create a new user; save their hashed password in
   the database; save the user's ID in the session hash; and return the user
   object in the JSON response.
 
